@@ -1,88 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+xmlns:tools="http://schemas.android.com/tools"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:orientation="vertical"
+android:id="@+id/root_layout"
+android:background="#fcfeff"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+
+<androidx.appcompat.widget.Toolbar
+    android:id="@+id/plant_chosen_toolbar"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="?attr/actionBarSize"
+    android:background="?attr/colorPrimary"
+    android:elevation="4dp"
+    app:logo="@mipmap/ic_launcher"
+    android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
+<!--android:layout_width="match_parent"
+android:layout_height="?attr/actionBarSize"
+android:minHeight="?attr/actionBarSize"
+android:padding="1dp"
+app:subtitleTextColor="#AAA111"
+app:titleTextColor="#AAA111"
+android:background="#9E168ACE"/>-->
 
-    <View
-        android:id="@+id/divider"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider" />
+<View
+    android:id="@+id/divider"
+    android:layout_width="match_parent"
+    android:layout_height="22dp"
+    android:background="?android:attr/listDivider" />
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="207dp"
+    android:orientation="horizontal">
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="207dp"
-        android:orientation="horizontal">
+        android:layout_width="330dp"
+        android:layout_height="209dp"
 
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <LinearLayout
-            android:layout_width="330dp"
-            android:layout_height="209dp"
-
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/light_sched_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/schedule" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
-
-            <Button
-                android:id="@+id/light_mode_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/mode" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <View
-        android:id="@+id/divider2"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider" />
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="158dp"
-            android:layout_height="match_parent"
-            android:text="@string/light" />
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:text="@string/lux_value"
+            tools:text="17 Lux" />
+
+        <Spinner
+            android:id="@+id/light_sched_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/btn_dropdown"
+            android:entries="@android:array/organizationTypes"
+            android:spinnerMode="dropdown"
+            android:text="@string/schedule"
+            android:visibility="visible"
+            tools:listitem="@android:layout/simple_spinner_dropdown_item"
+            tools:visibility="visible" />
 
         <Space
-            android:layout_width="52dp"
-            android:layout_height="match_parent" />
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
 
-    </TableRow>
+        <Button
+            android:id="@+id/light_mode_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mode" />
+    </LinearLayout>
+</LinearLayout>
+
+<View
+    android:id="@+id/divider2"
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:background="?android:attr/listDivider" />
+
+<TableRow
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="158dp"
+        android:layout_height="match_parent"
+        android:text="@string/light" />
 
     <Space
-        android:layout_width="match_parent"
-        android:layout_height="98dp" />
+        android:layout_width="52dp"
+        android:layout_height="match_parent" />
 
-    <Button
-        android:id="@+id/plant_history_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/plant_history" />
+</TableRow>
+
+<Space
+    android:layout_width="match_parent"
+    android:layout_height="98dp" />
+
+<Button
+    android:id="@+id/plant_history_button"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/plant_history" />
 
 </LinearLayout>

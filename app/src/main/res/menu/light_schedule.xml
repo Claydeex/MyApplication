@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <item
+            android:id="@+id/action_cut"
+            android:title="@string/cut"
+            app:showAsAction="ifRoom|withText"
+            android:icon="@drawable/common_google_signin_btn_icon_dark_normal"
+            />
+        <item
+            android:id="@+id/action_copy"
+            android:title="@string/copy"
+            app:showAsAction="always|withText"
+            android:icon="@drawable/common_google_signin_btn_icon_light_normal"
+            />
+        <item
+            android:id="@+id/action_paste"
+            android:title="@string/paste"
+            app:showAsAction="ifRoom"
+            android:icon="@drawable/googleg_standard_color_18"
+            />
+        <item
+            android:id="@+id/action_new"
+            android:title="@string/make_new"
+            app:showAsAction="ifRoom"
+            android:icon="@drawable/ic_launcher_foreground"
+            />
+    </menu>
