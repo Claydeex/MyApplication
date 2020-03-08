@@ -8,10 +8,6 @@
     <string name="lux_value">Lux Value</string>
     <string name="tap_an_item_from_action_bar_menu">Tap an item from action bar menu.</string>
     <string name="action_settings">Settings</string>
-    <string name="cut">Cut</string>
-    <string name="copy">Copy</string>
-    <string name="paste">Paste</string>
-    <string name="make_new">make New</string>
 
     <string-array name="GeneralSettings">
     <item>Pot Size</item>

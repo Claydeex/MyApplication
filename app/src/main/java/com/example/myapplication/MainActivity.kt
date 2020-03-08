@@ -19,12 +19,12 @@ import kotlinx.android.synthetic.main.plant_chosen.*
 
 class MainActivity : AppCompatActivity() {
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+/*    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu to use in the action bar
         val inflater = menuInflater
         inflater.inflate(R.menu.light_schedule, menu)
         return super.onCreateOptionsMenu(menu)
-    }
+    }*/
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
@@ -84,16 +84,13 @@ class MainActivity : AppCompatActivity() {
         // Set toolbar title/app title
         actionBar!!.title = "Plant Settings"
 
-        // Set action bar/toolbar sub title
-        actionBar.subtitle = "App subtitle"
-
         // Set action bar elevation
         actionBar.elevation = 4.0F
 
         // Display the app icon in action bar/toolbar
         actionBar.setDisplayShowHomeEnabled(true)
         android.app.ActionBar.DISPLAY_SHOW_TITLE
-        actionBar.setLogo(R.mipmap.ic_launcher)
+        actionBar.setLogo(R.drawable.home_icon_foreground)
         actionBar.setDisplayUseLogoEnabled(true)
 
     }
