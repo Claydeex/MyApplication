@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/plant_4"
+        app:layout_constraintTop_toBottomOf="@+id/plant_4"
+        app:srcCompat="@android:drawable/btn_default_small" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/plant_4"
+        app:layout_constraintTop_toTopOf="@+id/imageView15"
+        app:srcCompat="@android:drawable/btn_default_small" />
+
+    <ImageView
+        android:id="@+id/Plant_2light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/plant_5"
+        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:srcCompat="@android:drawable/btn_default_small" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/plant_5"
+        app:layout_constraintTop_toBottomOf="@+id/plant_5"
+        app:srcCompat="@android:drawable/btn_default_small" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/plant_3"
+        app:layout_constraintTop_toBottomOf="@+id/plant_3"
+        app:srcCompat="@android:drawable/btn_default_small" />
+
+    <ImageView
+        android:id="@+id/imageView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/plant_2"
+        app:layout_constraintTop_toBottomOf="@+id/plant_2"
+        app:srcCompat="@android:drawable/btn_default_small" />
+
+    <ImageView
+        android:id="@+id/imageView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/plant_2"
+        app:layout_constraintTop_toTopOf="@+id/imageView17"
+        app:srcCompat="@android:drawable/btn_default_small" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/plant_3"
+        app:layout_constraintTop_toTopOf="@+id/imageView13"
+        app:srcCompat="@android:drawable/btn_default_small" />
+
+    <ImageView
+        android:id="@+id/Plant_1light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/plant_1"
+        app:layout_constraintTop_toTopOf="@+id/PLant_1water"
+        app:srcCompat="@android:drawable/btn_default_small" />
+
+    <ImageButton
+        android:id="@+id/plant_1"
+        android:layout_width="120dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/round_shape_drawable"
+        android:contentDescription="Plant 1"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/plant_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Fyto_logo"
+        app:srcCompat="@drawable/plant1" />
+
+    <ImageButton
+        android:id="@+id/plant_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="150dp"
+        android:layout_marginRight="150dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/round_shape_drawable"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/plant_3"
+        app:layout_constraintEnd_toStartOf="@+id/plant_5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/plant_1"
+        app:srcCompat="@drawable/plant2" />
+
+    <ImageButton
+        android:id="@+id/plant_3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginBottom="75dp"
+        android:background="@drawable/round_shape_drawable"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/plant_4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/plant_2"
+        app:srcCompat="@drawable/plant3" />
+
+    <ImageButton
+        android:id="@+id/plant_4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/round_shape_drawable"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@+id/plant_3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/plant_3"
+        app:layout_constraintTop_toTopOf="@+id/plant_3"
+        app:srcCompat="@drawable/plant4" />
+
+    <ImageButton
+        android:id="@+id/plant_5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/round_shape_drawable"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@+id/plant_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/plant_2"
+        app:layout_constraintTop_toTopOf="@+id/plant_2"
+        app:srcCompat="@drawable/plant5" />
+
+    <ImageView
+        android:id="@+id/Fyto_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/plant_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fytologo" />
+
+    <ImageView
+        android:id="@+id/PLant_1water"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/plant_1"
+        app:layout_constraintTop_toBottomOf="@+id/plant_1"
+        app:srcCompat="@android:drawable/btn_default_small" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
