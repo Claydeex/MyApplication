@@ -8,14 +8,27 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="610dp"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
-
+        android:layout_height="449dp"
+        tools:srcCompat="?android:attr/textSelectHandle" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="71dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Testing"
+        tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/test_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Go To Plant Selection"
+        />
 
 </LinearLayout>
