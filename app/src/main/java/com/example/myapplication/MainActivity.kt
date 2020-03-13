@@ -1,77 +1,60 @@
 package com.example.myapplication
 
+import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
-
-import kotlinx.android.synthetic.main.activity_main.*
+import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.homepage.*
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val imgView = ImageView(this)
+        val bmFytoImg = BitmapFactory.decodeFile("C:\\Users\\harri\\AndroidStudioProjects\\MyApplication\\app\\src\\main\\res\\drawable\\fytologo.png")
+        imgView.setImageBitmap(bmFytoImg)
+
         setContentView(R.layout.homepage)
-        setSupportActionBar(toolbar)
-        /**called when the user presses button for plant 1*/
+        //setSupportActionBar(toolbar)
+        /*called when the user presses button for plant 1*/
         fun sendMessage(view: View) {
 
         }
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+
+        plant_1.setOnClickListener {
+            val plant1 = Intent(this@MainActivity, PlantSelectionActivity::class.java)
+            plant1.putExtra("plant num",1);
+            startActivity(plant1);
         }
-    }
 
+        plant_2.setOnClickListener {
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when(item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
+            val plant2 = Intent(this@MainActivity, PlantSelectionActivity::class.java)
+            plant2.putExtra("plant num",2);
+            startActivity(plant2);
         }
-    }
-}
-class Homepage: AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.homepage)
-        setSupportActionBar(toolbar)
-        /**called when the user presses button for plant 1*/
-        fun sendMessage(view: View) {
-
+        plant_3.setOnClickListener {
+            val plant3 = Intent(this@MainActivity, PlantSelectionActivity::class.java)
+            plant3.putExtra("plant num",3);
+            startActivity(plant3);
         }
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+
+        plant_4.setOnClickListener {
+            val plant4 = Intent(this@MainActivity, PlantSelectionActivity::class.java)
+            plant4.putExtra("plant num",4);
+            startActivity(plant4);
         }
-    }
 
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when(item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
+        plant_5.setOnClickListener {
+            val plant5 = Intent(this@MainActivity, PlantSelectionActivity::class.java)
+            plant5.putExtra("plant num",5);
+            startActivity(plant5);
         }
+
     }
+
 }

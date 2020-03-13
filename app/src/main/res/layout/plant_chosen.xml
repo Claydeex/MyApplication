@@ -68,9 +68,16 @@
             android:spinnerMode="dropdown"
             android:text="@string/schedule"
             android:visibility="visible"
+            tools:ignore="HardcodedText"
             tools:listitem="@android:layout/simple_spinner_dropdown_item"
-            tools:visibility="visible" />
+            tools:visibility="visible"
 
+            />
+        <!--android:focusable="true"
+         android:clickable="true"
+         android:onClick="showTimePickerDialog"
+
+        -->
         <Space
             android:layout_width="match_parent"
             android:layout_height="15dp" />

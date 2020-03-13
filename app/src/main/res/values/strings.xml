@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<string name="app_name">My Application</string>
+    <string name="app_name">My Application</string>
     <string name="light">Light</string>
     <string name="plant_history">Plant History</string>
     <string name="schedule">Schedule</string>
@@ -10,9 +10,9 @@
     <string name="action_settings">Settings</string>
 
     <string-array name="GeneralSettings">
-    <item>Pot Size</item>
-    <item>Plant Thirst</item>
-    <item>Watering Frequency</item>
-</string-array>
+        <item>Pot Size</item>
+        <item>Plant Thirst</item>
+        <item>Watering Frequency</item>
+    </string-array>
 
 </resources>

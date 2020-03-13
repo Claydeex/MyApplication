@@ -10,7 +10,7 @@
                 <size
                     android:width="100dp"
                     android:height="100dp"
-                    android:margin="15dp" />
+                    />
 
             </shape>
     </item>
