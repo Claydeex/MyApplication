@@ -31,7 +31,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         plant_2.setOnClickListener {
-
             val plant2 = Intent(this@MainActivity, PlantSelectionActivity::class.java)
             plant2.putExtra("plant num",2);
             startActivity(plant2);

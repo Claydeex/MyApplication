@@ -4,7 +4,7 @@
     <string name="light">Light</string>
     <string name="plant_history">Plant History</string>
     <string name="schedule">Schedule</string>
-    <string name="mode">Mode</string>
+    <string name="automatic_demo">Automatic Demo</string>
     <string name="lux_value">Lux Value</string>
     <string name="tap_an_item_from_action_bar_menu">Tap an item from action bar menu.</string>
     <string name="action_settings">Settings</string>

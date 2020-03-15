@@ -8,46 +8,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:852115550567:android:653e2a54d6137741d67fc2",
+        "mobilesdk_app_id": "1:852115550567:android:6dc28d15844f2345d67fc2",
         "android_client_info": {
           "package_name": "com.Fyto.UserApp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "852115550567-nvvha5q1fmifm3a1g2g0m8f14aon50mm.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDVk9ulI5oHMN38sUbY6FkkvJAJOmVSgzo"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "852115550567-nvvha5q1fmifm3a1g2g0m8f14aon50mm.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:852115550567:android:ad56b705dc8dc9f4d67fc2",
-        "android_client_info": {
-          "package_name": "com.example.test"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "852115550567-1oj6sqnllli39v8ervmpoh9242vsm2ng.apps.googleusercontent.com",
+          "client_id": "852115550567-imaujdi2k1clsia5gok8i1sardoq1k16.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.test",
+            "package_name": "com.Fyto.UserApp",
             "certificate_hash": "c38c9e074cbb832db9c7d2363858aef8a0cc823a"
           }
         },

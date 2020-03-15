@@ -2,31 +2,36 @@ package com.example.myapplication
 
 import android.os.Bundle
 import android.util.Log
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import com.google.firebase.database.*
+//import com.google.firebase.ktx.Firebase
 
 class PlantSelectionActivity : AppCompatActivity() {
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
+    companion object {
+        private const val TAG = "MyActivity"
+    }
+
+/*    override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
 
         R.id.home -> {
             onBackPressed()
             true
         }
         else -> super.onOptionsItemSelected(item);
-    }
+    }*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        //val TAG = "MyActivity"
         var plantNumber: Int? = null
         val extras = intent.extras
         if (extras != null) {
             plantNumber = extras.getInt("plant num")
 
-            val TAG = "MyActivity"
             Log.v(TAG, "plant #$plantNumber");
-
             //The plant # argument here must match the one used in the other activity
         }
 
@@ -41,14 +46,17 @@ class PlantSelectionActivity : AppCompatActivity() {
 
         setContentView(R.layout.plant_chosen)
 
-        // Set the toolbar as support action bar
-        setSupportActionBar(findViewById(R.id.plant_chosen_toolbar))
+        val toolbar: Toolbar = findViewById<Toolbar>(R.id.plant_chosen_toolbar)
+        setSupportActionBar(toolbar)
 
-        // Now get the support action bar
+        //toolbar.setNavigationIcon(R.drawable.ic_)
+        toolbar.title = "Plant $plantNumber Settings"
+        toolbar.subtitle = "Your Plant Name"
+        toolbar.setLogo(R.drawable.ic_fytologo)
+        toolbar.titleMarginBottom = 5
+
+        /*// Now get the support action bar
         val actionBar = supportActionBar
-
-        // Set toolbar title/app title
-        actionBar!!.title = "Plant $plantNumber Settings"
 
         // Set Home Button in Action Bar
         actionBar.setDisplayHomeAsUpEnabled(true)
@@ -58,9 +66,7 @@ class PlantSelectionActivity : AppCompatActivity() {
 
         // Display the app icon in action bar/toolbar
         actionBar.setDisplayShowHomeEnabled(true)
-        android.app.ActionBar.DISPLAY_SHOW_TITLE
-        actionBar.setLogo(R.drawable.fytologo)
-        actionBar.setDisplayUseLogoEnabled(true)
+        android.app.ActionBar.DISPLAY_SHOW_TITLE*/
 
     }
 
@@ -69,6 +75,34 @@ class PlantSelectionActivity : AppCompatActivity() {
         return true
         //return super.onSupportNavigateUp()
     }
+
+    // Firebase communication
+    fun basicReadWrite() {
+
+        // Writing to Firebase
+        val myRef = FirebaseDatabase.getInstance().getReference("Light")
+        //myRef.setValue("Hello, World!")
+
+        // Read from the database
+        myRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                for(h in dataSnapshot.children) {
+                    //val input = h.getValue(Light::class.java)
+                }
+                val value = dataSnapshot.value
+                Log.d(TAG, "Value is: $value")
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException())
+            }
+        })
+
+    }
+
 }
 
 /*
