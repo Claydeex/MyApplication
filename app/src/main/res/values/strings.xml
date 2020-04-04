@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">My Application</string>
-    <string name="light">Light</string>
-    <string name="plant_history">Plant History</string>
+    <string name="app_name">fyto</string>
+    <string name="light">Lighting Mode</string>
+    <string name="light_history">Light History</string>
+    <string name="water_history">Saturation History</string>
     <string name="schedule">Schedule</string>
-    <string name="mode">Mode</string>
+    <string name="automatic_demo">Automatic Demo</string>
     <string name="lux_value">Lux Value</string>
     <string name="tap_an_item_from_action_bar_menu">Tap an item from action bar menu.</string>
     <string name="action_settings">Settings</string>
-    <string name="prompt">Select A Time</string>
 
     <string-array name="GeneralSettings">
         <item>Pot Size</item>

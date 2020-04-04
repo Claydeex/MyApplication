@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.Fyto.UserApp
 
 import org.junit.Test
 
