@@ -2,6 +2,7 @@ package com.example.myapplication
 
 import android.content.Intent
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -18,6 +19,22 @@ class MainActivity : AppCompatActivity() {
         imgView.setImageBitmap(bmFytoImg)
 
         setContentView(R.layout.homepage)
+        creatorButton.setOnClickListener {
+            // This is where we'll dynamically create our new view!!!
+            var newView: ImageView
+            newView = ImageView(this)
+
+            myLayout.addView(newView)
+
+            newView.layoutParams.height = 200
+            newView.layoutParams.width = 200
+            newView.x = 300F
+            newView.y = 500F
+            newView.setBackgroundColor(Color.MAGENTA)
+        }
+
+
+
         //setSupportActionBar(toolbar)
         /*called when the user presses button for plant 1*/
         fun sendMessage(view: View) {

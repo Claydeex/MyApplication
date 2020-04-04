@@ -6,115 +6,56 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
-    tools:showIn="@layout/activity_main">
+    tools:showIn="@layout/activity_main"
+
+    android:id="@+id/myLayout"
+    >
+
+
+    <!-- test piece -->
+    <Button
+        android:id="@+id/creatorButton"
+        android:text="switcherino"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- Plant 1 main picture, water and light status -->
+    <ImageButton
+        android:id="@+id/plant_1"
+        android:layout_width="120dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/round_shape_drawable"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/plant_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/plant1" />
 
     <ImageView
-        android:id="@+id/imageView15"
+        android:id="@+id/water1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="@+id/plant_4"
-        app:layout_constraintTop_toBottomOf="@+id/plant_4"
+        app:layout_constraintStart_toStartOf="@+id/plant_1"
+        app:layout_constraintTop_toBottomOf="@+id/plant_1"
         app:srcCompat="@android:drawable/btn_default_small" />
 
     <ImageView
-        android:id="@+id/imageView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/plant_4"
-        app:layout_constraintTop_toTopOf="@+id/imageView15"
-        app:srcCompat="@android:drawable/btn_default_small" />
-
-    <ImageView
-        android:id="@+id/Plant_2light"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/plant_5"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
-        app:srcCompat="@android:drawable/btn_default_small" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="@+id/plant_5"
-        app:layout_constraintTop_toBottomOf="@+id/plant_5"
-        app:srcCompat="@android:drawable/btn_default_small" />
-
-    <ImageView
-        android:id="@+id/imageView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="@+id/plant_3"
-        app:layout_constraintTop_toBottomOf="@+id/plant_3"
-        app:srcCompat="@android:drawable/btn_default_small" />
-
-    <ImageView
-        android:id="@+id/imageView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="@+id/plant_2"
-        app:layout_constraintTop_toBottomOf="@+id/plant_2"
-        app:srcCompat="@android:drawable/btn_default_small" />
-
-    <ImageView
-        android:id="@+id/imageView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/plant_2"
-        app:layout_constraintTop_toTopOf="@+id/imageView17"
-        app:srcCompat="@android:drawable/btn_default_small" />
-
-    <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/plant_3"
-        app:layout_constraintTop_toTopOf="@+id/imageView13"
-        app:srcCompat="@android:drawable/btn_default_small" />
-
-    <ImageView
-        android:id="@+id/Plant_1light"
+        android:id="@+id/light1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         app:layout_constraintEnd_toEndOf="@+id/plant_1"
-        app:layout_constraintTop_toTopOf="@+id/PLant_1water"
+        app:layout_constraintTop_toTopOf="@+id/water1"
         app:srcCompat="@android:drawable/btn_default_small" />
 
-    <ImageButton
-        android:id="@+id/plant_1"
-        android:layout_width="120dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/round_shape_drawable"
-        android:contentDescription="Plant 1"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/plant_2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Fyto_logo"
-        app:srcCompat="@drawable/plant1" />
+    <!-- Plant 2 main picture, water and light status -->
 
     <ImageButton
         android:id="@+id/plant_2"
@@ -133,6 +74,29 @@
         app:layout_constraintTop_toBottomOf="@+id/plant_1"
         app:srcCompat="@drawable/plant2" />
 
+    <ImageView
+        android:id="@+id/water2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/plant_2"
+        app:layout_constraintTop_toBottomOf="@+id/plant_2"
+        app:srcCompat="@android:drawable/btn_default_small" />
+
+    <ImageView
+        android:id="@+id/light2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/plant_2"
+        app:layout_constraintTop_toTopOf="@+id/water2"
+        app:srcCompat="@android:drawable/btn_default_small" />
+
+    <!-- Plant 3 main picture, water and light status -->
+
     <ImageButton
         android:id="@+id/plant_3"
         android:layout_width="0dp"
@@ -141,7 +105,7 @@
         android:layout_marginLeft="50dp"
         android:layout_marginEnd="70dp"
         android:layout_marginRight="70dp"
-        android:layout_marginBottom="75dp"
+        android:layout_marginBottom="100dp"
         android:background="@drawable/round_shape_drawable"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -149,6 +113,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/plant_2"
         app:srcCompat="@drawable/plant3" />
+
+    <ImageView
+        android:id="@+id/water3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/plant_3"
+        app:layout_constraintTop_toBottomOf="@+id/plant_3"
+        app:srcCompat="@android:drawable/btn_default_small" />
+
+    <ImageView
+        android:id="@+id/light3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/plant_3"
+        app:layout_constraintTop_toTopOf="@+id/water3"
+        app:srcCompat="@android:drawable/btn_default_small" />
+
+    <!-- Plant 4 main picture, water and light status -->
 
     <ImageButton
         android:id="@+id/plant_4"
@@ -163,6 +150,31 @@
         app:layout_constraintStart_toEndOf="@+id/plant_3"
         app:layout_constraintTop_toTopOf="@+id/plant_3"
         app:srcCompat="@drawable/plant4" />
+
+    <ImageView
+        android:id="@+id/water4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/plant_4"
+        app:layout_constraintTop_toBottomOf="@+id/plant_4"
+        app:srcCompat="@android:drawable/btn_default_small" />
+
+    <ImageView
+        android:id="@+id/light4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/plant_4"
+        app:layout_constraintTop_toTopOf="@+id/water4"
+        app:srcCompat="@android:drawable/btn_default_small" />
+
+
+
+    <!-- Plant 5 main picture, water and light status -->
 
     <ImageButton
         android:id="@+id/plant_5"
@@ -179,25 +191,26 @@
         app:srcCompat="@drawable/plant5" />
 
     <ImageView
-        android:id="@+id/Fyto_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="35dp"
-        app:layout_constraintBottom_toTopOf="@+id/plant_1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/fytologo" />
-
-    <ImageView
-        android:id="@+id/PLant_1water"
+        android:id="@+id/water5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="@+id/plant_1"
-        app:layout_constraintTop_toBottomOf="@+id/plant_1"
+        app:layout_constraintStart_toStartOf="@+id/plant_5"
+        app:layout_constraintTop_toBottomOf="@+id/plant_5"
         app:srcCompat="@android:drawable/btn_default_small" />
+
+    <ImageView
+        android:id="@+id/light5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/plant_5"
+        app:layout_constraintTop_toTopOf="@+id/water5"
+        app:srcCompat="@android:drawable/btn_default_small" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
