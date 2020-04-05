@@ -9,34 +9,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<!--    Make a variable for the colour scheme to prevent magic numbers-->
+    <!--    Make a variable for the colour scheme to prevent magic numbers-->
     <androidx.appcompat.widget.Toolbar
-        android:background="#AED581"
         android:id="@+id/plant_chosen_toolbar"
-        android:layout_height="60dp"
         android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#AED581"
         android:minHeight="60dp"
         app:popupTheme="@style/ThemeOverlay.AppCompat.ActionBar"
 
-        />
+        app:title="@string/app_name" />
 
-        <!-- app:titleTextColor="#043208"
-         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" -->
+    <!-- app:titleTextColor="#043208"
+     android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" -->
 
-        <!--android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:minHeight="?attr/actionBarSize"
-        android:padding="1dp"
-        app:subtitleTextColor="#AAA111"
-        app:titleTextColor="#AAA111"
-        android:background="#9E168ACE"/>-->
-
-    <View
-    android:id="@+id/divider"
-    android:layout_width="match_parent"
-    android:layout_height="22dp"
-    android:background="?android:attr/listDivider" />
+    <!--android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:minHeight="?attr/actionBarSize"
+    android:padding="1dp"
+    app:subtitleTextColor="#AAA111"
+    app:titleTextColor="#AAA111"
+    android:background="#9E168ACE"/>-->
 
     <!--<LinearLayout
         android:layout_width="match_parent"
@@ -45,56 +39,167 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="209dp"
+        android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            style="@android:style/TextAppearance.Material.Widget.Toolbar.Subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="?android:attr/listDivider"
+            android:backgroundTint="#689F38"
+            android:paddingLeft="10dp"
+            android:text="Light"
+            android:textSize="20sp"
+            android:textStyle="italic" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
-            android:layout_height="209dp">
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="270dp"
-                android:layout_height="40dp"
+                style="@android:style/Widget.DeviceDefault.TextView"
+                android:layout_width="203dp"
+                android:layout_height="34dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="18dp"
-                android:text="@string/lux_value"
+                android:text="Lux Value"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@+id/light_sched_spinner"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.8"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:text="17 Lux" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <Spinner
                 android:id="@+id/light_sched_spinner"
-                android:layout_width="299dp"
+                style="@style/LightSpinnerTheme"
+                android:layout_width="240dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="76dp"
+                android:layout_marginTop="18dp"
                 android:background="#9468A15F"
-                android:entries="@android:array/organizationTypes"
-
-                android:spinnerMode="dropdown"
-                android:text="@string/schedule"
-                android:visibility="visible"
+                android:gravity="center"
+                android:popupElevation="16sp"
+                android:prompt="@string/light"
+                android:textAlignment="center"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.9"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="HardcodedText"
-                tools:listitem="@android:layout/simple_spinner_dropdown_item"
-                tools:visibility="visible" />
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
             <Button
                 android:id="@+id/light_mode_button"
-                android:layout_width="299dp"
+                style="@android:style/Widget.TextView.PopupMenu"
+                android:layout_width="240dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="18dp"
-                android:text="@string/automatic_demo"
                 android:background="#9468A15F"
+                android:text="@string/automatic_demo"
+                android:textAllCaps="false"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.9"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/light_sched_spinner" />
+
+            <TextView
+                android:id="@+id/textView3"
+                style="@android:style/Widget.TextView.PopupMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="24dp"
+                android:elegantTextHeight="false"
+                android:text="Light Mode:"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/light_mode_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/light_sched_spinner" />
+
+            <Switch
+                android:id="@+id/switch1"
+                style="@android:style/Widget.TextView.PopupMenu"
+                android:layout_width="96dp"
+                android:layout_height="12dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="16dp"
+                android:text="Off/On"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/light_sched_spinner"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/light_history_button"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                android:background="#9468A15F"
+                android:cursorVisible="false"
+                android:gravity="center"
+                android:text="@string/light_history"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/light_mode_button" />
+
+            <TextView
+                android:id="@+id/textView6"
+                style="@android:style/TextAppearance.Material.Widget.Toolbar.Subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="84dp"
+                android:background="?android:attr/listDivider"
+                android:backgroundTint="#689F38"
+                android:paddingLeft="10sp"
+                android:text="Water"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                app:layout_constraintTop_toBottomOf="@+id/light_mode_button"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <Button
+                android:id="@+id/water_mode_button"
+                style="@android:style/Widget.TextView.PopupMenu"
+                android:layout_width="240dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="192dp"
+                android:layout_marginEnd="8dp"
+                android:background="#9468A15F"
+                android:text="@string/automatic_demo"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/light_sched_spinner" />
+
+            <Button
+                android:id="@+id/water_history_button"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="104dp"
+                android:layout_marginEnd="16dp"
+                android:background="#9468A15F"
+                android:gravity="center"
+                android:text="@string/water_history"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.493"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -104,39 +209,5 @@
         -->
 
     </LinearLayout>
-
-    <View
-        android:id="@+id/divider2"
-        android:layout_width="match_parent"
-        android:layout_height="18dp"
-        android:background="?android:attr/listDivider" />
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="158dp"
-            android:layout_height="match_parent"
-            android:text="@string/light" />
-
-        <Space
-            android:layout_width="52dp"
-            android:layout_height="match_parent" />
-
-    </TableRow>
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="98dp" />
-
-    <Button
-        android:id="@+id/plant_history_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#9468A15F"
-        android:text="@string/plant_history" />
 
 </LinearLayout>

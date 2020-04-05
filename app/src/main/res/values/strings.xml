@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">My Application</string>
-    <string name="light">Light</string>
-    <string name="plant_history">Plant History</string>
+    <string name="app_name">fyto</string>
+    <string name="light">Lighting Mode</string>
+    <string name="light_history">Light History</string>
+    <string name="water_history">Saturation History</string>
     <string name="schedule">Schedule</string>
     <string name="automatic_demo">Automatic Demo</string>
     <string name="lux_value">Lux Value</string>
