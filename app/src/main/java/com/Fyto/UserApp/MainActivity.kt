@@ -11,6 +11,7 @@ import android.util.Log
 import android.widget.ImageView
 import android.widget.RemoteViews
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.homepage.*
 import com.google.firebase.database.*
@@ -58,46 +59,11 @@ class MainActivity : AppCompatActivity() {
         /* fun sendMessage(view: View) {
         }*/
 
-        notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         //if firebase value is below minimum, run
-        btn_notify.setOnClickListener {
-
-            //val intent = Intent(this, LauncherActivity::class.java)
-            val intent = Intent(this, MainActivity::class.java).apply {
-                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            }
-
-            val pendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
-
-            val contentView = RemoteViews(packageName, R.layout.notification_layout)
-            contentView.setTextViewText(R.id.noti_title, "I'm Thirsty!")
-            contentView.setTextViewText(R.id.noti_content, "Please fill up your fyto reservoir")
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                notificationChannel = NotificationChannel(channelId, description, NotificationManager.IMPORTANCE_HIGH)
-                notificationChannel.enableLights(true)
-                notificationChannel.lightColor = Color.GREEN
-                notificationChannel.enableVibration(true)
-                notificationManager.createNotificationChannel(notificationChannel)
-
-                builder = Notification.Builder(this, channelId)
-                    .setContent(contentView)
-                    .setSmallIcon(R.drawable.fytologo)
-                    .setLargeIcon(BitmapFactory.decodeResource(this.resources, R.drawable.fytologo))
-                    .setContentIntent(pendingIntent)
-                    .setAutoCancel(true)
-            } else {
-                builder = Notification.Builder(this)
-                    .setContent(contentView)
-                    .setSmallIcon(R.drawable.fytologo)
-                    .setLargeIcon(BitmapFactory.decodeResource(this.resources, R.drawable.fytologo))
-                    .setContentIntent(pendingIntent)
-            }
-            notificationManager.notify(1234, builder.build())
-        }
 
         myRef!!.addValueEventListener(object : ValueEventListener {
+            @RequiresApi(Build.VERSION_CODES.O)
             override fun onDataChange(dataSnapshot:DataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated
@@ -112,7 +78,47 @@ class MainActivity : AppCompatActivity() {
                 findViewById<TextView>(R.id.Humidity2).text = rHomepageDataSH1?.humidityReading
 
                 val rHomepageDataWL: HomepageData? = dataSnapshot.child("WateringSystem").getValue(HomepageData::class.java)
-               findViewById<TextView>(R.id.WaterLevel).text = rHomepageDataWL?.waterLevel
+
+                notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+                if(rHomepageDataWL?.waterLevel!! > 100) {
+
+                    findViewById<TextView>(R.id.WaterLevel).text = "Low Water! Please fill me up"
+                    //val intent = Intent(this@MainActivity, LauncherActivity::class.java)
+                    val intent = Intent(this@MainActivity, MainActivity::class.java).apply {
+                        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    }
+
+                    val pendingIntent = PendingIntent.getActivity(this@MainActivity, 0, intent, 0)
+
+                    val contentView = RemoteViews(packageName, R.layout.notification_layout)
+                    contentView.setTextViewText(R.id.noti_title, "I'm Thirsty!")
+                    contentView.setTextViewText(R.id.noti_content, "Please fill up your fyto reservoir")
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        notificationChannel = NotificationChannel(channelId, description, NotificationManager.IMPORTANCE_HIGH)
+                        notificationChannel.enableLights(true)
+                        notificationChannel.lightColor = Color.GREEN
+                        notificationChannel.enableVibration(true)
+                        notificationManager.createNotificationChannel(notificationChannel)
+
+                        builder = Notification.Builder(this@MainActivity, channelId)
+                            .setContent(contentView)
+                            .setSmallIcon(R.drawable.fytologo)
+                            .setLargeIcon(BitmapFactory.decodeResource(this@MainActivity.resources, R.drawable.fytologo))
+                            .setContentIntent(pendingIntent)
+                            .setAutoCancel(true)
+                    } else {
+                        builder = Notification.Builder(this@MainActivity)
+                            .setContent(contentView)
+                            .setSmallIcon(R.drawable.fytologo)
+                            .setLargeIcon(BitmapFactory.decodeResource(this@MainActivity.resources, R.drawable.fytologo))
+                            .setContentIntent(pendingIntent)
+                            .setAutoCancel(true)
+                    }
+                    notificationManager.notify(1234, builder.build())
+                }
+
 
             }
 
