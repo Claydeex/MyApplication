@@ -11,8 +11,8 @@ public class HomepageData {
 
     }
 
-    public String getIsConnected() {
-        return String.valueOf(isConnected);
+    public Boolean getIsConnected() {
+        return (isConnected);
     }
 
     public void setIsConnected(Boolean isConnected) {
