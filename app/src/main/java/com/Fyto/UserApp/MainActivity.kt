@@ -108,6 +108,8 @@ class MainActivity : AppCompatActivity() {
                             .setAutoCancel(true)
                     }
                     notificationManager.notify(1234, builder.build())
+                }else {
+                    findViewById<TextView>(R.id.WaterLevel).text = "  "
                 }
 
 
