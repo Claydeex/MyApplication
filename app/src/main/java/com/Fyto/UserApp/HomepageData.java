@@ -27,8 +27,8 @@ public class HomepageData {
         this.humidityReading = humidityReading;
     }
 
-    public String getWaterLevel() {
-        return String.valueOf(waterLevel);
+    public Integer getWaterLevel() {
+        return waterLevel.intValue();
     }
 
     public void setWaterLevel(Long waterLevel) {
