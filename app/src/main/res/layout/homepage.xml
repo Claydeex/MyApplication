@@ -11,12 +11,7 @@
     >
 
 
-    <!-- test piece -->
-    <Button
-        android:id="@+id/creatorButton"
-        android:text="switcherino"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+
 
     <!-- Plant 1 main picture, water and light status -->
     <ImageButton
@@ -64,7 +59,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginEnd="150dp"
         android:layout_marginRight="150dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="90dp"
         android:background="@drawable/round_shape_drawable"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toTopOf="@+id/plant_3"
@@ -223,21 +218,20 @@
 
     <TextView
         android:id="@+id/Humidity1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
         android:text="HumidityTest1"
-        app:layout_constraintEnd_toStartOf="@+id/WaterLevel"
-        tools:layout_editor_absoluteY="104dp" />
+        app:layout_constraintEnd_toStartOf="@+id/lightVal1"
+        app:layout_constraintStart_toStartOf="@+id/plant_1"
+        app:layout_constraintTop_toBottomOf="@+id/water1" />
 
     <TextView
         android:id="@+id/Humidity2"
-        android:layout_width="wrap_content"
-        android:layout_height="19dp"
-        android:layout_marginEnd="28dp"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
         android:text="HumidityTest2"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="104dp" />
+        app:layout_constraintEnd_toStartOf="@+id/lightVal2"
+        app:layout_constraintTop_toBottomOf="@+id/water5" />
 
     <TextView
         android:id="@+id/WaterLevel"
@@ -264,11 +258,11 @@
         style="@android:style/Widget.DeviceDefault.TextView"
         android:layout_width="60dp"
         android:layout_height="30dp"
-        android:layout_marginTop="8dp"
         android:text="Lux Value"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/plant_5"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/plant_4"
         app:layout_constraintTop_toBottomOf="@+id/light5" />
 

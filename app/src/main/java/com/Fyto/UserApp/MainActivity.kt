@@ -40,19 +40,7 @@ class MainActivity : AppCompatActivity() {
         imgView.setImageBitmap(bmFytoImg)
 
         setContentView(R.layout.homepage)
-        creatorButton.setOnClickListener {
-            // This is where we'll dynamically create our new view!!!
-            var newView: ImageView
-            newView = ImageView(this)
 
-            myLayout.addView(newView)
-
-            newView.layoutParams.height = 200
-            newView.layoutParams.width = 200
-            newView.x = 300F
-            newView.y = 500F
-            newView.setBackgroundColor(Color.MAGENTA)
-        }
 
         //setSupportActionBar(toolbar)
         /*called when the user presses button for plant 1*/
@@ -69,16 +57,16 @@ class MainActivity : AppCompatActivity() {
                 // whenever data at this location is updated
 
                 val rHomepageDataLux0: HomepageData? = dataSnapshot.child("Light").child("L0").getValue(HomepageData::class.java)
-                findViewById<TextView>(R.id.lightVal1).text = rHomepageDataLux0?.luxReading
+                findViewById<TextView>(R.id.lightVal1).text = rHomepageDataLux0?.luxReading+" lux"
 
                 val rHomepageDataLux1: HomepageData? = dataSnapshot.child("Light").child("L1").getValue(HomepageData::class.java)
-                findViewById<TextView>(R.id.lightVal2).text = rHomepageDataLux1?.luxReading
+                findViewById<TextView>(R.id.lightVal2).text = rHomepageDataLux1?.luxReading+" lux"
 
                 val rHomepageDataSH0: HomepageData? = dataSnapshot.child("SoilHumidity").child("SH0").getValue(HomepageData::class.java)
-                findViewById<TextView>(R.id.Humidity1).text = rHomepageDataSH0?.humidityReading
+                findViewById<TextView>(R.id.Humidity1).text = rHomepageDataSH0?.humidityReading+" %"
 
                 val rHomepageDataSH1: HomepageData? = dataSnapshot.child("SoilHumidity").child("SH1").getValue(HomepageData::class.java)
-                findViewById<TextView>(R.id.Humidity2).text = rHomepageDataSH1?.humidityReading
+                findViewById<TextView>(R.id.Humidity2).text = rHomepageDataSH1?.humidityReading+" %"
 
                 val rHomepageDataWL: HomepageData? = dataSnapshot.child("WateringSystem").getValue(HomepageData::class.java)
 
