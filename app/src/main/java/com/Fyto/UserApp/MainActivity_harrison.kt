@@ -4,18 +4,22 @@ import android.app.*
 import android.content.Intent
 import android.content.Context
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
 import android.widget.RemoteViews
+import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.homepage_harrison.*
+import kotlinx.android.synthetic.main.homepage.*
 import com.google.firebase.database.*
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var myRef: DatabaseReference
+    private var mFirebaseDatabase: FirebaseDatabase? = null
+    private var myRef: DatabaseReference? = null
 
     lateinit var notificationManager: NotificationManager
     lateinit var notificationChannel: NotificationChannel
@@ -23,79 +27,106 @@ class MainActivity : AppCompatActivity() {
     private val channelId = "com.Fyto.UserApp"
     private val description = "Water Reservoir Low"
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    companion object {
+        private const val TAG = "MyActivity"
+    }
 
-        myRef = FirebaseDatabase.getInstance().getReference()
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        myRef = FirebaseDatabase.getInstance().reference
 
         val imgView = ImageView(this)
-        val bmFytoImg =
-            BitmapFactory.decodeFile("C:\\Users\\harri\\AndroidStudioProjects\\MyApplication\\app\\src\\main\\res\\drawable\\fytologo.png")
+        val bmFytoImg = BitmapFactory.decodeFile("C:\\Users\\harri\\AndroidStudioProjects\\MyApplication\\app\\src\\main\\res\\drawable\\fytologo.png")
         imgView.setImageBitmap(bmFytoImg)
 
-        setContentView(R.layout.homepage_harrison)
+        setContentView(R.layout.homepage)
+
         //setSupportActionBar(toolbar)
         /*called when the user presses button for plant 1*/
         /* fun sendMessage(view: View) {
         }*/
 
-        notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         //if firebase value is below minimum, run
-        btn_notify.setOnClickListener {
 
-            //val intent = Intent(this, LauncherActivity::class.java)
-            val intent = Intent(this, MainActivity::class.java).apply {
-                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            }
-
-            val pendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
-
-            val contentView = RemoteViews(packageName, R.layout.noitification_layout)
-            contentView.setTextViewText(R.id.noti_title, "I'm Thirsty!")
-            contentView.setTextViewText(R.id.noti_content, "Please fill up your fyto reservoir")
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                notificationChannel = NotificationChannel(channelId, description, NotificationManager.IMPORTANCE_HIGH)
-                notificationChannel.enableLights(true)
-                notificationChannel.enableVibration(true)
-                notificationManager.createNotificationChannel(notificationChannel)
-
-                builder = Notification.Builder(this, channelId)
-                    .setContent(contentView)
-                    .setSmallIcon(R.drawable.fytologo)
-                    .setLargeIcon(BitmapFactory.decodeResource(this.resources, R.drawable.fytologo))
-                    .setContentIntent(pendingIntent)
-                    .setAutoCancel(true)
-            } else {
-                builder = Notification.Builder(this)
-                    .setContent(contentView)
-                    .setSmallIcon(R.drawable.fytologo)
-                    .setLargeIcon(BitmapFactory.decodeResource(this.resources, R.drawable.fytologo))
-                    .setContentIntent(pendingIntent)
-            }
-            notificationManager.notify(1234, builder.build())
-        }
-
-        myRef.addValueEventListener(object : ValueEventListener {
-            /*override fun onDataChange(dataSnapshot : DataSnapshot?) {
+        myRef!!.addValueEventListener(object : ValueEventListener {
+            @RequiresApi(Build.VERSION_CODES.O)
+            override fun onDataChange(dataSnapshot:DataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated
+
+                val rHomepageDataLCon: HomepageData? = dataSnapshot.child("Light").child("L0").getValue(HomepageData::class.java)
+                 if(rHomepageDataLCon!!.isConnected == false) {
+
+                 }
+
+                val rHomepageDataLux0: HomepageData? = dataSnapshot.child("Light").child("L0").getValue(HomepageData::class.java)
+                findViewById<TextView>(R.id.lightVal).text = rHomepageDataLux0?.luxReading
+
+                val rHomepageDataLux1: HomepageData? = dataSnapshot.child("Light").child("L1").getValue(HomepageData::class.java)
+                //findViewById<TextView>(R.id.lightVal2).text = rHomepageDataLux1?.luxReading
 
                 val rHomepageDataSH0: HomepageData? = dataSnapshot.child("SoilHumidity").child("SH0").getValue(HomepageData::class.java)
                 findViewById<TextView>(R.id.Humidity1).text = rHomepageDataSH0?.humidityReading
 
-                //val rHomepageDataSH1: HomepageData? = dataSnapshot.child("SoilHumidity").child("SH1").getValue(HomepageData::class.java)
-                //findViewById<TextView>(R.id.Humidity2).text = rHomepageDataSH1?.humidityReading
+                val rHomepageDataSH1: HomepageData? = dataSnapshot.child("SoilHumidity").child("SH1").getValue(HomepageData::class.java)
+                findViewById<TextView>(R.id.Humidity2).text = rHomepageDataSH1?.humidityReading
 
-                //val rHomepageDataWL: HomepageData? = dataSnapshot.child("WateringSystem").child("waterLevel").getValue(HomepageData::class.java)
-               //findViewById<TextView>(R.id.WaterLevel).text = rHomepageDataWL?.waterLevel
+                val rHomepageDataWL: HomepageData? = dataSnapshot.child("WateringSystem").getValue(HomepageData::class.java)
 
-            }*/
+                notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
-            override fun onCancelled(p0: DatabaseError) {
+                if(rHomepageDataWL?.waterLevel!! > 100) {
+
+                    findViewById<TextView>(R.id.WaterLevel).text = "Low Water! Please fill me up"
+                    //val intent = Intent(this@MainActivity, LauncherActivity::class.java)
+                    val intent = Intent(this@MainActivity, MainActivity::class.java).apply {
+                        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    }
+
+                    val pendingIntent = PendingIntent.getActivity(this@MainActivity, 0, intent, 0)
+
+                    val contentView = RemoteViews(packageName, R.layout.notification_layout)
+                    contentView.setTextViewText(R.id.noti_title, "I'm Thirsty!")
+                    contentView.setTextViewText(R.id.noti_content, "Please fill up your fyto reservoir")
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        notificationChannel = NotificationChannel(channelId, description, NotificationManager.IMPORTANCE_HIGH)
+                        notificationChannel.enableLights(true)
+                        notificationChannel.lightColor = Color.GREEN
+                        notificationChannel.enableVibration(true)
+                        notificationManager.createNotificationChannel(notificationChannel)
+
+                        builder = Notification.Builder(this@MainActivity, channelId)
+                            .setContent(contentView)
+                            .setSmallIcon(R.drawable.fytologo)
+                            .setLargeIcon(BitmapFactory.decodeResource(this@MainActivity.resources, R.drawable.fytologo))
+                            .setContentIntent(pendingIntent)
+                            .setAutoCancel(true)
+                    } else {
+                        builder = Notification.Builder(this@MainActivity)
+                            .setContent(contentView)
+                            .setSmallIcon(R.drawable.fytologo)
+                            .setLargeIcon(BitmapFactory.decodeResource(this@MainActivity.resources, R.drawable.fytologo))
+                            .setContentIntent(pendingIntent)
+                            .setAutoCancel(true)
+                    }
+                    notificationManager.notify(1234, builder.build())
+                } else {
+                    findViewById<TextView>(R.id.WaterLevel).text = "  "
+                }
+
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
                 // Failed to read value
-                TODO("not implemented")
+                Log.w(TAG, "Failed to read value.", error.toException())
+            }
+
+            /*override fun onCancelled(p0: DatabaseError) {
+                // Failed to read value
+
                 Log.w("MyActivity", "Failed to read value.")
             }
 
@@ -106,7 +137,7 @@ class MainActivity : AppCompatActivity() {
 
                 }
 
-            }
+            }*/
         })
 
         plant_1.setOnClickListener {
