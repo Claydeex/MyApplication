@@ -3,10 +3,9 @@
     <item>
             <shape android:shape="oval">
                 <stroke
-                    android:color="@color/colorAccent"
-                    android:width="2dp"/>
+                    />
                 <solid
-                    android:color="@color/colorPrimaryDark"/>
+                    />
                 <size
                     android:width="100dp"
                     android:height="100dp"

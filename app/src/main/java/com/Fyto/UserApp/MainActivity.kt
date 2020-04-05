@@ -102,8 +102,11 @@ class MainActivity : AppCompatActivity() {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated
 
-                val rHomepageDataLux: HomepageData? = dataSnapshot.child("Light").child("L0").getValue(HomepageData::class.java)
-                findViewById<TextView>(R.id.lightVal).text = rHomepageDataLux?.luxReading
+                val rHomepageDataLux0: HomepageData? = dataSnapshot.child("Light").child("L0").getValue(HomepageData::class.java)
+                findViewById<TextView>(R.id.lightVal1).text = rHomepageDataLux0?.luxReading
+
+                val rHomepageDataLux1: HomepageData? = dataSnapshot.child("Light").child("L1").getValue(HomepageData::class.java)
+                findViewById<TextView>(R.id.lightVal2).text = rHomepageDataLux1?.luxReading
 
                 val rHomepageDataSH0: HomepageData? = dataSnapshot.child("SoilHumidity").child("SH0").getValue(HomepageData::class.java)
                 findViewById<TextView>(R.id.Humidity1).text = rHomepageDataSH0?.humidityReading
