@@ -76,8 +76,8 @@ class PlantSelectionActivity : AppCompatActivity() {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated
 
-                val rPlantDataUno: ReadPlantData? = dataSnapshot.child("Light").child("L0").getValue(ReadPlantData::class.java)
-                findViewById<TextView>(R.id.textView2).text = rPlantDataUno?.luxReading
+                //val rPlantDataUno: ReadPlantData? = dataSnapshot.child("Light").child("L0").getValue(ReadPlantData::class.java)
+                //findViewById<TextView>(R.id.textView2).text = rPlantDataUno?.luxReading
 
                 //for (ds in dataSnapshot.children) {
 

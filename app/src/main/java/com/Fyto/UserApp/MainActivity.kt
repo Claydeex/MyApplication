@@ -10,13 +10,15 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
 import android.widget.RemoteViews
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.homepage.*
 import com.google.firebase.database.*
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var myRef: DatabaseReference
+    private var mFirebaseDatabase: FirebaseDatabase? = null
+    private var myRef: DatabaseReference? = null
 
     lateinit var notificationManager: NotificationManager
     lateinit var notificationChannel: NotificationChannel
@@ -24,9 +26,13 @@ class MainActivity : AppCompatActivity() {
     private val channelId = "com.Fyto.UserApp"
     private val description = "Water Reservoir Low"
 
+    companion object {
+        private const val TAG = "MyActivity"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        myRef = FirebaseDatabase.getInstance().getReference()
+        myRef = FirebaseDatabase.getInstance().reference
 
         val imgView = ImageView(this)
         val bmFytoImg = BitmapFactory.decodeFile("C:\\Users\\harri\\AndroidStudioProjects\\MyApplication\\app\\src\\main\\res\\drawable\\fytologo.png")
@@ -91,25 +97,33 @@ class MainActivity : AppCompatActivity() {
             notificationManager.notify(1234, builder.build())
         }
 
-        myRef.addValueEventListener(object : ValueEventListener {
-            /*override fun onDataChange(dataSnapshot : DataSnapshot?) {
+        myRef!!.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot:DataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated
+
+                val rHomepageDataLux: HomepageData? = dataSnapshot.child("Light").child("L0").getValue(HomepageData::class.java)
+                findViewById<TextView>(R.id.lightVal).text = rHomepageDataLux?.luxReading
 
                 val rHomepageDataSH0: HomepageData? = dataSnapshot.child("SoilHumidity").child("SH0").getValue(HomepageData::class.java)
                 findViewById<TextView>(R.id.Humidity1).text = rHomepageDataSH0?.humidityReading
 
-                //val rHomepageDataSH1: HomepageData? = dataSnapshot.child("SoilHumidity").child("SH1").getValue(HomepageData::class.java)
-                //findViewById<TextView>(R.id.Humidity2).text = rHomepageDataSH1?.humidityReading
+                val rHomepageDataSH1: HomepageData? = dataSnapshot.child("SoilHumidity").child("SH1").getValue(HomepageData::class.java)
+                findViewById<TextView>(R.id.Humidity2).text = rHomepageDataSH1?.humidityReading
 
-                //val rHomepageDataWL: HomepageData? = dataSnapshot.child("WateringSystem").child("waterLevel").getValue(HomepageData::class.java)
-               //findViewById<TextView>(R.id.WaterLevel).text = rHomepageDataWL?.waterLevel
+                val rHomepageDataWL: HomepageData? = dataSnapshot.child("WateringSystem").getValue(HomepageData::class.java)
+               findViewById<TextView>(R.id.WaterLevel).text = rHomepageDataWL?.waterLevel
 
-            }*/
+            }
 
-            override fun onCancelled(p0: DatabaseError) {
+            override fun onCancelled(error: DatabaseError) {
                 // Failed to read value
-                TODO("not implemented")
+                Log.w(TAG, "Failed to read value.", error.toException())
+            }
+
+            /*override fun onCancelled(p0: DatabaseError) {
+                // Failed to read value
+
                 Log.w("MyActivity", "Failed to read value.")
             }
 
@@ -120,7 +134,7 @@ class MainActivity : AppCompatActivity() {
 
                 }
 
-            }
+            }*/
         })
 
         plant_1.setOnClickListener {

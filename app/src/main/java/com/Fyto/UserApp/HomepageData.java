@@ -2,9 +2,10 @@ package com.Fyto.UserApp;
 
 public class HomepageData {
 
-    private Long isConnected;
+    private Boolean isConnected;
     private Long humidityReading;
     private Long waterLevel;
+    private Long luxReading;
 
     public HomepageData(){
 
@@ -14,7 +15,7 @@ public class HomepageData {
         return String.valueOf(isConnected);
     }
 
-    public void setIsConnected(Long isConnected) {
+    public void setIsConnected(Boolean isConnected) {
         this.isConnected = isConnected;
     }
 
@@ -33,4 +34,13 @@ public class HomepageData {
     public void setWaterLevel(Long waterLevel) {
         this.waterLevel = waterLevel;
     }
+
+    public String getLuxReading() {
+        return String.valueOf(luxReading);
+    }
+
+    public void setLuxReading(Long luxReading) {
+        this.luxReading = luxReading;
+    }
+
 }
